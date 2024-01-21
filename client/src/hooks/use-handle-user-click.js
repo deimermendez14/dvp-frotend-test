@@ -4,7 +4,7 @@ export const useHandleUserClick = () => {
   const navigation = useNavigation();
 
   const handleUserClick = (login) => {
-    navigation.navigate('UserProfile', { username: login });
+    navigation.navigate('GitHub Profile', { username: login });
   };
 
   return { handleUserClick };

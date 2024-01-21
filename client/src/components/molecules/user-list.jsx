@@ -1,7 +1,13 @@
 import React from 'react';
 import { FlatList, Text, TouchableOpacity, View } from 'react-native';
+import { useAppContext } from '../../context/app-context';
+import { useHandleUserClick } from '../../hooks/use-handle-user-click';
 
-export const UserList = ({ userData, handleUserClick}) => {
+export const UserList = () => {
+  const { userData } = useAppContext();
+
+  const { handleUserClick } = useHandleUserClick();
+
   return (
     <FlatList
       data={userData}

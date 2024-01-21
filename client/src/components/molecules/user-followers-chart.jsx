@@ -1,8 +1,11 @@
 import React, { Fragment } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 import { CustomBarChart } from '../atoms/custom-bar-chart';
+import { useAppContext } from '../../context/app-context';
 
-export const UserFollowersChart = ({ followersData = [] }) => {
+export const UserFollowersChart = () => {
+  const { followersData } = useAppContext();
+
   return (
     <Fragment>
       <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 10 }}>
