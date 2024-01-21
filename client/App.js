@@ -1,8 +1,8 @@
-import React from 'react';
-import { Main } from './src/components/organisms/main';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { UserProfile } from './src/components/organisms/user-profile';
+import React from 'react';
+import { Main } from './src/components/screens/main';
+import { UserProfile } from './src/components/screens/user-profile';
 
 const Stack = createNativeStackNavigator();
 

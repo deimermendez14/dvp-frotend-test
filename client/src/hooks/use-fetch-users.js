@@ -1,6 +1,6 @@
 import { getUsersService } from '../services/get-users.service';
 
-export const useFetchUsers = (username, setError, setUserData) => {
+export const useFetchUsers = ({username, setError, setUserData}) => {
   const handleSearch = async () => {
     if (username.length < 4) {
       setError('Ingrese al menos 4 caracteres para la búsqueda.');
@@ -13,9 +13,9 @@ export const useFetchUsers = (username, setError, setUserData) => {
     }
 
     try {
-      const { response } = await getUsersService();
+      const { response } = await getUsersService(username);
       setUserData(response.data.items.slice(0, 10));
-      setError(null); // Limpiar el mensaje de error en caso de éxito
+      setError(null);
     } catch (error) {
       console.error('Error fetching data:', error);
       setError('Hubo un error al recuperar la información de GitHub.');

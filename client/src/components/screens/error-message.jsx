@@ -2,8 +2,7 @@
 
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import PropTypes from 'prop-types'; 
-
+import PropTypes from 'prop-types';
 
 export const ErrorMessage = ({ message }) => {
   return (
@@ -27,6 +26,5 @@ const styles = StyleSheet.create({
 });
 
 ErrorMessage.propTypes = {
-    message: PropTypes.string.isRequired,  // Agrega la validación de PropTypes
-  };
-  
+  message: PropTypes.string.isRequired,
+};

@@ -1,28 +1,14 @@
-// UserProfile.js
-
-import React, { useEffect, useState } from 'react';
-import { View, Text, Image } from 'react-native';
-import axios from 'axios';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { Image, Text, View } from 'react-native';
+import { useFetchUserInformation } from '../../hooks/use-fetch-user-information';
 
 export const UserProfile = ({ route }) => {
   const { username } = route.params;
+
   const [userData, setUserData] = useState(null);
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.github.com/users/${username}`
-        );
-        setUserData(response.data);
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      }
-    };
-
-    fetchUserData();
-  }, [username]);
+  useFetchUserInformation({ username, setUserData });
 
   return (
     <View style={{ padding: 20 }}>
@@ -42,7 +28,6 @@ export const UserProfile = ({ route }) => {
           />
           <Text>Nombre de usuario: {userData.login}</Text>
           <Text>ID: {userData.id}</Text>
-          {/* Agregar información adicional según tus necesidades */}
         </View>
       ) : (
         <Text>Cargando datos del usuario...</Text>
@@ -51,7 +36,6 @@ export const UserProfile = ({ route }) => {
   );
 };
 
-// Añadir validación de PropTypes
 UserProfile.propTypes = {
   route: PropTypes.shape({
     params: PropTypes.shape({
